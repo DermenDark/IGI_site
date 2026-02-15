@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХолодПрофи | Магазин холодильников</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифт Google Fonts для красоты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайта (Header) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🧊</span> ХолодПрофи
+            </div>
+            <nav class="navigation">
+                <ul class="nav-list">
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero Section) -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1 class="hero-title">Свежесть в каждом доме</h1>
+                <p class="hero-description">
+                    Широкий выбор холодильников для дома и бизнеса. Надежность, качество и доступные цены.
+                </p>
+                <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+            </div>
+            <div class="hero-image">
+                <!-- Картинка для примера, вы можете заменить ссылку на свою -->
+                <img src="https://images.unsplash.com/photo-1584568694244-4c5b7b9c2c8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Современный холодильник">
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог (Catalog) -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Популярные модели</h2>
+            <div class="catalog-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1584568694244-4c5b7b9c2c8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник 1" class="product-img">
+                    <h3 class="product-title">Холодильник ArcticCool A300</h3>
+                    <p class="product-price">42 990 ₽</p>
+                    <button class="btn btn-outline">Запросить цену</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник 2" class="product-img">
+                    <h3 class="product-title">Холодильник FrostFree B200</h3>
+                    <p class="product-price">51 300 ₽</p>
+                    <button class="btn btn-outline">Запросить цену</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1621786030484-4c855eed6974?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник 3" class="product-img">
+                    <h3 class="product-title">Холодильник NordStyle C150</h3>
+                    <p class="product-price">38 700 ₽</p>
+                    <button class="btn btn-outline">Запросить цену</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас (About) -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Наш магазин">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">О компании ХолодПрофи</h2>
+                <p>Мы работаем на рынке бытовой техники более 10 лет. За это время мы помогли тысячам семей обустроить свой дом и сделать его уютнее.</p>
+                <p>Наша миссия — дарить людям свежесть. Мы сотрудничаем только с проверенными производителями, поэтому гарантируем качество всей представленной техники.</p>
+                <p>В нашем магазине вы найдете холодильник на любой вкус и бюджет.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества (Advantages) -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <span class="advantage-icon">🚚</span>
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 30 000 рублей доставим бесплатно по городу.</p>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-icon">🛠️</span>
+                    <h3>Гарантия 3 года</h3>
+                    <p>Предоставляем расширенную гарантию на всю технику.</p>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-icon">💰</span>
+                    <h3>Цены ниже рынка</h3>
+                    <p>Мы являемся официальными дилерами, поэтому цены приятно удивят.</p>
+                </div>
+                <div class="advantage-item">
+                    <span class="advantage-icon">⭐</span>
+                    <h3>Опытные консультанты</h3>
+                    <p>Поможем выбрать модель, которая подойдет именно вам.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты (Contacts) -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-wrapper">
+                <div class="contact-info">
+                    <p><strong>Адрес:</strong> г. Москва, ул. Морозная, д. 15</p>
+                    <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                    <p><strong>Email:</strong> info@holodprofi.ru</p>
+                    <p><strong>Режим работы:</strong> Ежедневно с 10:00 до 21:00</p>
+                </div>
+                <!-- Простая карта-заглушка, можно заменить на iframe карты -->
+                <div class="contact-map">
+                    <div style="background-color: #e0e0e0; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #666;">
+                        [Здесь будет карта]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал (Footer) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>© 2024 ХолодПрофи. Все права защищены.</p>
+            <p>Сайт-визитка</p>
+        </div>
+    </footer>
+
+</body>
+</html>
