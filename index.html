@@ -1,210 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Хранилище контента — Оболочка</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Легкие SVG-иконки вlined для минимализма -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Тёмное хранилище · контент-бокс</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="brand">
-      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
-      <div class="brand-text">
-        <h1>Моё Хранилище</h1>
-        <p class="muted">собирай статьи, видео и заметки</p>
-      </div>
+    <div class="app-container">
+
+        <!-- шапка / навигация по темам -->
+        <header class="main-header">
+            <h1 class="logo">🧠 cache·box</h1>
+            <nav class="topic-tabs">
+                <button class="tab active" data-topic="books">📚 Книги</button>
+                <button class="tab" data-topic="study">🎓 Учёба</button>
+                <button class="tab" data-topic="movies">🎬 Фильмы</button>
+                <button class="tab" data-topic="videos">📺 Интересные видео</button>
+            </nav>
+        </header>
+
+        <!-- основная рабочая область (два столбца) -->
+        <div class="main-layout">
+
+            <!-- левая колонка: ОЧЕРЕДЬ (входящие) -->
+            <section class="incoming-queue">
+                <h2 class="section-title">
+                    <span class="title-icon">⏳</span> Очередь на обработку
+                </h2>
+                <div class="queue-grid">
+
+                    <!-- карточка в очереди: видео -->
+                    <div class="queue-item">
+                        <div class="item-preview">▶️</div>
+                        <div class="item-info">
+                            <strong>Как учиться в 2 раза быстрее</strong>
+                            <span class="item-meta">YouTube · 15 мин</span>
+                            <div class="pre-tags">
+                                <span class="tag draft">ждёт тегов</span>
+                            </div>
+                        </div>
+                        <button class="process-btn" title="Обработать и распределить">➡️</button>
+                    </div>
+
+                    <!-- карточка в очереди: статья -->
+                    <div class="queue-item">
+                        <div class="item-preview">📄</div>
+                        <div class="item-info">
+                            <strong>Сложные проценты — просто</strong>
+                            <span class="item-meta">habr.com · статья</span>
+                            <div class="pre-tags">
+                                <span class="tag draft">ждёт тегов</span>
+                            </div>
+                        </div>
+                        <button class="process-btn" title="Обработать и распределить">➡️</button>
+                    </div>
+
+                    <!-- карточка в очереди: цитата -->
+                    <div class="queue-item">
+                        <div class="item-preview">❝</div>
+                        <div class="item-info">
+                            <strong>«Мы — то, что мы повторяем...»</strong>
+                            <span class="item-meta">Аристотель</span>
+                            <div class="pre-tags">
+                                <span class="tag draft">ждёт тегов</span>
+                            </div>
+                        </div>
+                        <button class="process-btn" title="Обработать и распределить">➡️</button>
+                    </div>
+                </div>
+                <!-- кнопка добавления в очередь (быстрое действие) -->
+                <button class="add-to-queue-btn">➕ добавить ссылку / заметку в очередь</button>
+            </section>
+
+            <!-- правая колонка: РАБОЧИЙ ХОЛСТ (все папки) -->
+            <section class="canvas-area">
+                <h2 class="section-title">
+                    <span class="title-icon">🖼️</span> Рабочий холст
+                </h2>
+
+                <!-- блок: видео -->
+                <div class="content-block" data-category="videos">
+                    <h3 class="block-header">📺 недавние видео</h3>
+                    <div class="card-grid">
+                        <div class="content-card">
+                            <div class="card-media">▶️</div>
+                            <div class="card-details">
+                                <h4>История CSS</h4>
+                                <p class="card-meta">youtube.com · 22 мин</p>
+                                <div class="card-tags">
+                                    <span class="tag">#фронтенд</span>
+                                    <span class="tag">#верстка</span>
+                                </div>
+                                <a href="#" class="card-link">смотреть →</a>
+                            </div>
+                        </div>
+                        <div class="content-card">
+                            <div class="card-media">🎞️</div>
+                            <div class="card-details">
+                                <h4>Как выучить английский за 3 месяца</h4>
+                                <p class="card-meta">youtube · 34 мин</p>
+                                <div class="card-tags">
+                                    <span class="tag">#языки</span>
+                                    <span class="tag">#лайфхак</span>
+                                </div>
+                                <a href="#" class="card-link">смотреть →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок: книги + оценки -->
+                <div class="content-block" data-category="books">
+                    <h3 class="block-header">📚 книги (с оценкой)</h3>
+                    <div class="card-grid">
+                        <div class="content-card book">
+                            <div class="card-media cover">📘</div>
+                            <div class="card-details">
+                                <h4>«Думай медленно... решай быстро»</h4>
+                                <p class="card-meta">Даниэль Канеман</p>
+                                <div class="rating">⭐ 8.5/10</div>
+                                <div class="card-tags">
+                                    <span class="tag">#психология</span>
+                                    <span class="tag">#мышление</span>
+                                </div>
+                                <a href="#" class="card-link">подробнее →</a>
+                            </div>
+                        </div>
+                        <div class="content-card book">
+                            <div class="card-media cover">📕</div>
+                            <div class="card-details">
+                                <h4>«Грокаем алгоритмы»</h4>
+                                <p class="card-meta">Адитья Бхаргава</p>
+                                <div class="rating">⭐ 9/10</div>
+                                <div class="card-tags">
+                                    <span class="tag">#алгоритмы</span>
+                                    <span class="tag">#python</span>
+                                </div>
+                                <a href="#" class="card-link">подробнее →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок: учёба / статьи + цитаты -->
+                <div class="content-block" data-category="study">
+                    <h3 class="block-header">🎓 учеба · статьи · цитаты</h3>
+                    <div class="card-grid">
+                        <div class="content-card study">
+                            <div class="card-media">📝</div>
+                            <div class="card-details">
+                                <h4>Заметки по латыни</h4>
+                                <p class="card-meta">лингвистика</p>
+                                <div class="card-tags">
+                                    <span class="tag">#язык</span>
+                                    <span class="tag">#корни</span>
+                                </div>
+                                <a href="#" class="card-link">читать →</a>
+                            </div>
+                        </div>
+                        <div class="content-card quote">
+                            <div class="card-media">❝</div>
+                            <div class="card-details">
+                                <h4>«Простота — высшая ступень искусства»</h4>
+                                <p class="card-meta">Леонардо да Винчи</p>
+                                <div class="card-tags">
+                                    <span class="tag">#мотивация</span>
+                                    <span class="tag">#искусство</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- блок: фильмы -->
+                <div class="content-block" data-category="movies">
+                    <h3 class="block-header">🎬 фильмы</h3>
+                    <div class="card-grid">
+                        <div class="content-card movie">
+                            <div class="card-media">🎥</div>
+                            <div class="card-details">
+                                <h4>Интерстеллар</h4>
+                                <p class="card-meta">2014, К. Нолан</p>
+                                <div class="rating">⭐ 10/10</div>
+                                <div class="card-tags">
+                                    <span class="tag">#фантастика</span>
+                                    <span class="tag">#драма</span>
+                                </div>
+                                <a href="#" class="card-link">трейлер →</a>
+                            </div>
+                        </div>
+                        <div class="content-card movie">
+                            <div class="card-media">🍿</div>
+                            <div class="card-details">
+                                <h4>Социальная сеть</h4>
+                                <p class="card-meta">2010, Финчер</p>
+                                <div class="rating">⭐ 8/10</div>
+                                <div class="card-tags">
+                                    <span class="tag">#биография</span>
+                                    <span class="tag">#бизнес</span>
+                                </div>
+                                <a href="#" class="card-link">смотреть →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- маленький футер (опционально) -->
+        <footer class="app-footer">
+            <span>🧩 локальное хранилище · всё начинается с очереди</span>
+        </footer>
     </div>
-
-    <nav class="main-nav" role="navigation" aria-label="Главные разделы">
-      <ul role="tablist">
-        <li role="presentation"><a role="tab" aria-selected="true" href="#books">Книги</a></li>
-        <li role="presentation"><a role="tab" href="#study">Учёба</a></li>
-        <li role="presentation"><a role="tab" href="#movies">Фильмы</a></li>
-        <li role="presentation"><a role="tab" href="#videos">Интересные видео</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <form class="search" role="search" aria-label="Поиск по хранилищу">
-        <input type="search" placeholder="Поиск: название, тег, ссылка…" />
-      </form>
-      <button class="btn" id="btn-add-queue" title="Добавить в очередь">+ В очередь</button>
-    </div>
-  </header>
-
-  <main class="layout" role="main">
-    <!-- Сайдбар: папки и теги -->
-    <aside class="sidebar" aria-label="Папки и теги">
-      <section class="panel">
-        <h2>Папки</h2>
-        <ul class="folders">
-          <li class="folder active">Входящая очередь <span class="count">3</span></li>
-          <li class="folder">Книги / Нон-фикшн</li>
-          <li class="folder">Учеба / Математика</li>
-          <li class="folder">Фильмы / Сериалы</li>
-          <li class="folder">Видео / YouTube</li>
-          <li class="folder create">+ Новая папка</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <h2>Теги (часто)</h2>
-        <div class="tags">
-          <button class="tag">#полезно</button>
-          <button class="tag">#курс</button>
-          <button class="tag">#рецензия</button>
-          <button class="tag">#смотреть</button>
-          <button class="tag">#для-проекта</button>
-        </div>
-      </section>
-
-      <section class="panel small">
-        <h2>Статус</h2>
-        <ul class="meta">
-          <li>Всего: <strong>128</strong></li>
-          <li>В очереди: <strong>3</strong></li>
-          <li>Обработано: <strong>45</strong></li>
-        </ul>
-      </section>
-    </aside>
-
-    <!-- Основная рабочая область -->
-    <section class="content">
-      <!-- Очередь: сюда попадают новые элементы для обработки -->
-      <section id="queue" class="panel queue" aria-labelledby="queue-heading">
-        <div class="panel-header">
-          <h2 id="queue-heading">Очередь обработки</h2>
-          <p class="muted">Новые элементы пока в черновике — распределите по папкам и добавьте теги</p>
-        </div>
-
-        <ul class="queue-list">
-          <!-- Пример элемента в очереди -->
-          <li class="queue-item">
-            <div class="qi-left">
-              <div class="qi-type">Видео</div>
-              <div class="qi-title">«Как решать интегралы — поясняющее видео»</div>
-              <div class="qi-meta muted">Источник: YouTube · 12 мин</div>
-            </div>
-            <div class="qi-actions">
-              <button class="btn small">Открыть</button>
-              <button class="btn outline small">В карточку</button>
-              <button class="btn ghost small">Удалить</button>
-            </div>
-          </li>
-
-          <li class="queue-item">
-            <div class="qi-left">
-              <div class="qi-type">Статья</div>
-              <div class="qi-title">«Ряды Фурье — краткая шпаргалка»</div>
-              <div class="qi-meta muted">Источник: blog.university.edu · текст</div>
-            </div>
-            <div class="qi-actions">
-              <button class="btn small">Открыть</button>
-              <button class="btn outline small">В карточку</button>
-              <button class="btn ghost small">Удалить</button>
-            </div>
-          </li>
-
-          <li class="queue-item placeholder">
-            <div class="qi-left">
-              <div class="qi-type">Книга</div>
-              <div class="qi-title">«Clean Code — заметки»</div>
-              <div class="qi-meta muted">Источник: личная — рецензия</div>
-            </div>
-            <div class="qi-actions">
-              <button class="btn small">Открыть</button>
-              <button class="btn outline small">В карточку</button>
-              <button class="btn ghost small">Удалить</button>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Рабочий холст / коллекция карточек -->
-      <section id="workspace" class="panel workspace" aria-labelledby="workspace-heading">
-        <div class="panel-header">
-          <h2 id="workspace-heading">Рабочий холст</h2>
-          <p class="muted">Добавляйте карточки сюда для группировки и быстрого доступа</p>
-        </div>
-
-        <div class="workspace-controls">
-          <div class="controls-left">
-            <button class="btn">Новая карточка</button>
-            <button class="btn outline">Фильтры</button>
-            <button class="btn outline">Сортировать</button>
-          </div>
-          <div class="controls-right muted">Drag &amp; drop поддерживается (план)</div>
-        </div>
-
-        <div class="cards-grid">
-          <!-- Пример карточки -->
-          <article class="card">
-            <div class="card-media">
-              <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='240'><rect width='100%' height='100%' fill='%23333'/><text x='50%' y='50%' fill='%23bbb' font-size='20' text-anchor='middle' dy='.3em'>Обложка</text></svg>" alt="Обложка книги">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Clean Code</h3>
-              <div class="card-meta muted">Книга · оценка: ★★★★☆</div>
-              <p class="card-excerpt">Краткая заметка: полезные практики для написания чистого кода — выжимка идей.</p>
-              <div class="card-tags">
-                <span class="badge">#программирование</span>
-                <span class="badge">#рецензия</span>
-              </div>
-            </div>
-            <div class="card-footer">
-              <a class="link" href="#">Открыть</a>
-              <a class="link" href="#">Источники</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media small">
-              <!-- видео превью -->
-              <svg viewBox="0 0 16 9" aria-hidden="true"><rect width="100%" height="100%"/></svg>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Интегралы — видео</h3>
-              <div class="card-meta muted">Видео · YouTube</div>
-              <p class="card-excerpt">Короткая заметка: понятные примеры, стоит пересмотреть перед экзаменом.</p>
-              <div class="card-tags">
-                <span class="badge">#учёба</span>
-                <span class="badge">#видео</span>
-              </div>
-            </div>
-            <div class="card-footer">
-              <a class="link" href="#">Открыть</a>
-              <a class="link" href="#">Добавить в папку</a>
-            </div>
-          </article>
-
-          <!-- Пустая подсказка (если холст пуст) -->
-          <!-- <div class="workspace-empty">Пока нет карточек — перетащите элементы из очереди или нажмите «Новая карточка»</div> -->
-        </div>
-      </section>
-    </section>
-
-    <!-- Правая панель: подробный просмотр / контекст -->
-    <aside class="detail-panel" aria-label="Детальный просмотр">
-      <section class="panel">
-        <h2>Детали</h2>
-        <div class="detail-placeholder muted">Выберите элемент из очереди или карточку, чтобы увидеть подробности.</div>
-      </section>
-
-      <section class="panel">
-        <h3>Быстрые теги</h3>
-        <div class="tags">
-          <button class="tag small">#важное</button>
-          <button class="tag small">#прочитать</button>
-          <button class="tag small">#посмотреть</button>
-        </div>
-      </section>
-    </aside>
-  </main>
-
-  <footer class="site-footer">
-    <div class="muted">Шаблон интерфейса — тёмная тема. Без backend-логики. © 2026</div>
-  </footer>
 </body>
 </html>
