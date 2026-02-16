@@ -1,150 +1,210 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ХолодПрофи | Магазин холодильников</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Подключаем шрифт Google Fonts для красоты -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Хранилище контента — Оболочка</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Легкие SVG-иконки вlined для минимализма -->
 </head>
 <body>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+      <div class="brand-text">
+        <h1>Моё Хранилище</h1>
+        <p class="muted">собирай статьи, видео и заметки</p>
+      </div>
+    </div>
 
-    <!-- Шапка сайта (Header) -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <span class="logo-icon">🧊</span> ХолодПрофи
-            </div>
-            <nav class="navigation">
-                <ul class="nav-list">
-                    <li><a href="#catalog">Каталог</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#advantages">Преимущества</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <nav class="main-nav" role="navigation" aria-label="Главные разделы">
+      <ul role="tablist">
+        <li role="presentation"><a role="tab" aria-selected="true" href="#books">Книги</a></li>
+        <li role="presentation"><a role="tab" href="#study">Учёба</a></li>
+        <li role="presentation"><a role="tab" href="#movies">Фильмы</a></li>
+        <li role="presentation"><a role="tab" href="#videos">Интересные видео</a></li>
+      </ul>
+    </nav>
 
-    <!-- Главный экран (Hero Section) -->
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-text">
-                <h1 class="hero-title">Свежесть в каждом доме</h1>
-                <p class="hero-description">
-                    Широкий выбор холодильников для дома и бизнеса. Надежность, качество и доступные цены.
-                </p>
-                <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
-            </div>
-            <div class="hero-image">
-                <!-- Картинка для примера, вы можете заменить ссылку на свою -->
-                <img src="https://avatars.mds.yandex.net/i?id=3f4c17b246d9a70520f3a7cbb58be85f93cfc5b6-10766029-images-thumbs&n=13" alt="Современный холодильник">
-            </div>
+    <div class="header-actions">
+      <form class="search" role="search" aria-label="Поиск по хранилищу">
+        <input type="search" placeholder="Поиск: название, тег, ссылка…" />
+      </form>
+      <button class="btn" id="btn-add-queue" title="Добавить в очередь">+ В очередь</button>
+    </div>
+  </header>
+
+  <main class="layout" role="main">
+    <!-- Сайдбар: папки и теги -->
+    <aside class="sidebar" aria-label="Папки и теги">
+      <section class="panel">
+        <h2>Папки</h2>
+        <ul class="folders">
+          <li class="folder active">Входящая очередь <span class="count">3</span></li>
+          <li class="folder">Книги / Нон-фикшн</li>
+          <li class="folder">Учеба / Математика</li>
+          <li class="folder">Фильмы / Сериалы</li>
+          <li class="folder">Видео / YouTube</li>
+          <li class="folder create">+ Новая папка</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Теги (часто)</h2>
+        <div class="tags">
+          <button class="tag">#полезно</button>
+          <button class="tag">#курс</button>
+          <button class="tag">#рецензия</button>
+          <button class="tag">#смотреть</button>
+          <button class="tag">#для-проекта</button>
         </div>
+      </section>
+
+      <section class="panel small">
+        <h2>Статус</h2>
+        <ul class="meta">
+          <li>Всего: <strong>128</strong></li>
+          <li>В очереди: <strong>3</strong></li>
+          <li>Обработано: <strong>45</strong></li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Основная рабочая область -->
+    <section class="content">
+      <!-- Очередь: сюда попадают новые элементы для обработки -->
+      <section id="queue" class="panel queue" aria-labelledby="queue-heading">
+        <div class="panel-header">
+          <h2 id="queue-heading">Очередь обработки</h2>
+          <p class="muted">Новые элементы пока в черновике — распределите по папкам и добавьте теги</p>
+        </div>
+
+        <ul class="queue-list">
+          <!-- Пример элемента в очереди -->
+          <li class="queue-item">
+            <div class="qi-left">
+              <div class="qi-type">Видео</div>
+              <div class="qi-title">«Как решать интегралы — поясняющее видео»</div>
+              <div class="qi-meta muted">Источник: YouTube · 12 мин</div>
+            </div>
+            <div class="qi-actions">
+              <button class="btn small">Открыть</button>
+              <button class="btn outline small">В карточку</button>
+              <button class="btn ghost small">Удалить</button>
+            </div>
+          </li>
+
+          <li class="queue-item">
+            <div class="qi-left">
+              <div class="qi-type">Статья</div>
+              <div class="qi-title">«Ряды Фурье — краткая шпаргалка»</div>
+              <div class="qi-meta muted">Источник: blog.university.edu · текст</div>
+            </div>
+            <div class="qi-actions">
+              <button class="btn small">Открыть</button>
+              <button class="btn outline small">В карточку</button>
+              <button class="btn ghost small">Удалить</button>
+            </div>
+          </li>
+
+          <li class="queue-item placeholder">
+            <div class="qi-left">
+              <div class="qi-type">Книга</div>
+              <div class="qi-title">«Clean Code — заметки»</div>
+              <div class="qi-meta muted">Источник: личная — рецензия</div>
+            </div>
+            <div class="qi-actions">
+              <button class="btn small">Открыть</button>
+              <button class="btn outline small">В карточку</button>
+              <button class="btn ghost small">Удалить</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Рабочий холст / коллекция карточек -->
+      <section id="workspace" class="panel workspace" aria-labelledby="workspace-heading">
+        <div class="panel-header">
+          <h2 id="workspace-heading">Рабочий холст</h2>
+          <p class="muted">Добавляйте карточки сюда для группировки и быстрого доступа</p>
+        </div>
+
+        <div class="workspace-controls">
+          <div class="controls-left">
+            <button class="btn">Новая карточка</button>
+            <button class="btn outline">Фильтры</button>
+            <button class="btn outline">Сортировать</button>
+          </div>
+          <div class="controls-right muted">Drag &amp; drop поддерживается (план)</div>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Пример карточки -->
+          <article class="card">
+            <div class="card-media">
+              <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='240'><rect width='100%' height='100%' fill='%23333'/><text x='50%' y='50%' fill='%23bbb' font-size='20' text-anchor='middle' dy='.3em'>Обложка</text></svg>" alt="Обложка книги">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Clean Code</h3>
+              <div class="card-meta muted">Книга · оценка: ★★★★☆</div>
+              <p class="card-excerpt">Краткая заметка: полезные практики для написания чистого кода — выжимка идей.</p>
+              <div class="card-tags">
+                <span class="badge">#программирование</span>
+                <span class="badge">#рецензия</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="link" href="#">Открыть</a>
+              <a class="link" href="#">Источники</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media small">
+              <!-- видео превью -->
+              <svg viewBox="0 0 16 9" aria-hidden="true"><rect width="100%" height="100%"/></svg>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Интегралы — видео</h3>
+              <div class="card-meta muted">Видео · YouTube</div>
+              <p class="card-excerpt">Короткая заметка: понятные примеры, стоит пересмотреть перед экзаменом.</p>
+              <div class="card-tags">
+                <span class="badge">#учёба</span>
+                <span class="badge">#видео</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="link" href="#">Открыть</a>
+              <a class="link" href="#">Добавить в папку</a>
+            </div>
+          </article>
+
+          <!-- Пустая подсказка (если холст пуст) -->
+          <!-- <div class="workspace-empty">Пока нет карточек — перетащите элементы из очереди или нажмите «Новая карточка»</div> -->
+        </div>
+      </section>
     </section>
 
-    <!-- Каталог (Catalog) -->
-    <section id="catalog" class="catalog">
-        <div class="container">
-            <h2 class="section-title">Популярные модели</h2>
-            <div class="catalog-grid">
-                <div class="product-card">
-                    <img src="https://newton.by/upload/iblock/ec1/hjx4nnmuobk8fwtfyz343yir05xdj4wk.jpg" alt="Холодильник ArcticCool A300" class="product-img">
-                    <h3 class="product-title">Холодильник ArcticCool A300</h3>
-                    <p class="product-price">42 990 ₽</p>
-                    <button class="btn btn-outline">Запросить цену</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник 2" class="product-img">
-                    <h3 class="product-title">Холодильник FrostFree B200</h3>
-                    <p class="product-price">51 300 ₽</p>
-                    <button class="btn btn-outline">Запросить цену</button>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1621786030484-4c855eed6974?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник 3" class="product-img">
-                    <h3 class="product-title">Холодильник NordStyle C150</h3>
-                    <p class="product-price">38 700 ₽</p>
-                    <button class="btn btn-outline">Запросить цену</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Правая панель: подробный просмотр / контекст -->
+    <aside class="detail-panel" aria-label="Детальный просмотр">
+      <section class="panel">
+        <h2>Детали</h2>
+        <div class="detail-placeholder muted">Выберите элемент из очереди или карточку, чтобы увидеть подробности.</div>
+      </section>
 
-    <!-- О нас (About) -->
-    <section id="about" class="about">
-        <div class="container about-container">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Наш магазин">
-            </div>
-            <div class="about-text">
-                <h2 class="section-title">О компании ХолодПрофи</h2>
-                <p>Мы работаем на рынке бытовой техники более 10 лет. За это время мы помогли тысячам семей обустроить свой дом и сделать его уютнее.</p>
-                <p>Наша миссия — дарить людям свежесть. Мы сотрудничаем только с проверенными производителями, поэтому гарантируем качество всей представленной техники.</p>
-                <p>В нашем магазине вы найдете холодильник на любой вкус и бюджет.</p>
-            </div>
+      <section class="panel">
+        <h3>Быстрые теги</h3>
+        <div class="tags">
+          <button class="tag small">#важное</button>
+          <button class="tag small">#прочитать</button>
+          <button class="tag small">#посмотреть</button>
         </div>
-    </section>
+      </section>
+    </aside>
+  </main>
 
-    <!-- Преимущества (Advantages) -->
-    <section id="advantages" class="advantages">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="advantages-grid">
-                <div class="advantage-item">
-                    <span class="advantage-icon">🚚</span>
-                    <h3>Бесплатная доставка</h3>
-                    <p>При заказе от 30 000 рублей доставим бесплатно по городу.</p>
-                </div>
-                <div class="advantage-item">
-                    <span class="advantage-icon">🛠️</span>
-                    <h3>Гарантия 3 года</h3>
-                    <p>Предоставляем расширенную гарантию на всю технику.</p>
-                </div>
-                <div class="advantage-item">
-                    <span class="advantage-icon">💰</span>
-                    <h3>Цены ниже рынка</h3>
-                    <p>Мы являемся официальными дилерами, поэтому цены приятно удивят.</p>
-                </div>
-                <div class="advantage-item">
-                    <span class="advantage-icon">⭐</span>
-                    <h3>Опытные консультанты</h3>
-                    <p>Поможем выбрать модель, которая подойдет именно вам.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакты (Contacts) -->
-    <section id="contacts" class="contacts">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contacts-wrapper">
-                <div class="contact-info">
-                    <p><strong>Адрес:</strong> г. Москва, ул. Морозная, д. 15</p>
-                    <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
-                    <p><strong>Email:</strong> info@holodprofi.ru</p>
-                    <p><strong>Режим работы:</strong> Ежедневно с 10:00 до 21:00</p>
-                </div>
-                <!-- Простая карта-заглушка, можно заменить на iframe карты -->
-                <div class="contact-map">
-                    <div style="background-color: #e0e0e0; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #666;">
-                        [Здесь будет карта]
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал (Footer) -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>© 2024 ХолодПрофи. Все права защищены.</p>
-            <p>Сайт-визитка</p>
-        </div>
-    </footer>
-
+  <footer class="site-footer">
+    <div class="muted">Шаблон интерфейса — тёмная тема. Без backend-логики. © 2026</div>
+  </footer>
 </body>
 </html>
